@@ -1,0 +1,114 @@
+
+<nav class="navLower">
+    <a class="navTitle">Department Manager</a>
+    <a (click)="onOpenModal(null, 'add')" class="navbarLink"  style="cursor: pointer;" >Add Department</a>
+
+    <form class="formBox" action="/search" method="get">
+        <input   #key="ngModel" ngModel  (ngModelChange)="searchDepartment(key.value)" 
+        style="padding: 8px;" class="inputBox" type="search" name="key" id="searchName" placeholder="Search departments...">
+    </form>
+</nav>
+
+
+<div class="container" id="main-container" >
+    <div class="rowDepart">
+        <div class="card"  style="width: 18rem;"  *ngFor="let department of departments" >
+            <img src="https://tse2.mm.bing.net/th?id=OIP._XAMMiJu8MPdS3SracRdpAHaEd&pid=Api&P=0&h=220" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{department.name}}</h5>
+              <p class="card-text">{{department.description}}</p>
+              <a (click)="onOpenModal(department, 'edit')" class="btn btn-primary" style="margin-right: 10px;">Edit</a>
+              <a (click)="onOpenModal(department, 'delete')" class="btn btn-primary" style="background-color: red; border-color: red; ">Delete</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--Add Department Modal-->
+<div class="modal fade" id="addDepartmentModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add a Department</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form #addForm="ngForm" (ngSubmit)="onAddDepartment(addForm)">
+                <div class="mb-3">
+                  <label for="departmentName" class="form-label">Name</label>
+                  <input type="text" ngModel class="form-control" id="departmentName"  name="name" placeholder="Enter name" required>
+                </div>
+                <div class="mb-3">
+                  <label for="departmentDescription" class="form-label">Description</label>
+                  <input type="email" ngModel class="form-control" id="departmentDescription"  name="description" placeholder="Enter description" required>
+                </div>
+                <div class="modal-footer">
+                    <button id="addClose" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+                </div>
+              </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+<!-- Edit Employee Modal -->
+<div class="modal fade" id="updateDepartmentModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Department {{editDepartment.name}}" </h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form #editForm="ngForm">
+
+                <div class="form-group">
+                    <input type="hidden" ngModel="{{editDepartment.id}}" name="id" id="id">
+                </div>
+
+                <div class="mb-3">
+                    <label for="departmentName" class="form-label">Name</label>
+                    <input type="text" ngModel={{editDepartment.name}} class="form-control" id="departmentName"  name="name" placeholder="Enter name" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="departmentDescription" class="form-label">Description</label>
+                    <input type="email" ngModel={{editDepartment.description}} class="form-control" id="departmentDescription"  name="description" placeholder="Enter description" required>
+                  </div>
+                  <div class="modal-footer">
+                      <button id="editClose" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button  type="submit" class="btn btn-primary" >Save changes</button>
+                  </div>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--  Delete Employee Modal -->
+<div class="modal fade" id="deleteDepartmentModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete Department</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete department:  {{deleteDepartment.name}}?
+        </div>
+        <div class="modal-footer">
+          <button id="deleteClose"  type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+          <button (click)="onDeleteDepartment(deleteDepartment.id)" type="submit" class="btn btn-primary" style="background-color: red"  >Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>

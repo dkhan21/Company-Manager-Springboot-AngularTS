@@ -1,1 +1,97 @@
-/* You can add global styles to this file, and also import other style files */
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css";
+@import "https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css";
+
+.nav {
+    height: 50px;
+    background-color: #484848;
+    display: flex;
+    flex-direction: row;
+    padding-left: 15px; /* Correct capitalization */
+    align-items: center;
+    color: white;
+}
+
+.navLower {
+    height: 50px;
+    background-color: #484848;
+    display: flex;
+    flex-direction: row;
+    padding-left: 15px; /* Correct capitalization */
+    align-items: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.navTitle {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.navbarLink {
+    font-size: 12px; 
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+    background-color: #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-left: 20px;
+    height: 35px;
+    align-content: center;
+}
+
+.navbarLink:hover {
+    background-color: #0056b3;
+}
+
+.inputBox {
+    border-radius: 5px; 
+    padding: 8px; /* Added padding for better appearance */
+    margin-left: 30px; /* Pushes input to the right */
+    height: 35px;
+}
+
+.rowDepart {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Ensures elements wrap to the next row if there isn't enough space */
+    margin-left: 30px;
+    margin-right: 30px;
+    gap: 15px; /* Optional: Adds space between items */
+    justify-content: center;
+}
+
+body {
+    background: #f5f5f5;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+    margin-bottom: 30px;
+}
+
+.w-60 {
+    width: 60px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 10px;
+    font-weight: 600;
+}
+
+.social-links li a {
+    border-radius: 50%;
+    background-color: rgba(89, 206, 181, .85);
+    color: #fff;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    width: 30px;
+    font-size: 12px;
+}
+
+a {
+    color: #707070;
+}
