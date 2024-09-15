@@ -1,7 +1,7 @@
 # Employee Manager Application
 
 ## See Backend Branch for Backend Code (SpringBoot)
-## See Frontend Branch for Frontend Code (AngularTS)
+## See Frontend Branch/(Main) for Frontend Code (AngularTS)
 
 
 The Employee Manager Application is a full-stack web application designed to manage employee data efficiently. This project includes both frontend and backend components, allowing users to perform CRUD operations on employee records and assign them to departments.
